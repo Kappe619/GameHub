@@ -1,0 +1,17 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GameHub.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <HorizontalStackLayout>
+                <Button Text="Tic Tac Toe" Clicked="TicTacToeBtnClicked"/>
+                <Button Text="Hangman" Clicked="HangmanBtnClicked"/>
+            </HorizontalStackLayout>
+
+            <VerticalStackLayout x:Name="VerticalStack"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
