@@ -2,7 +2,7 @@
 
 public partial class TicTacToeView : ContentView
 {
-    Page mainPage; 
+    Page mainPage;
     public TicTacToeView(Page mainPage)
     {
         this.mainPage = mainPage;
@@ -24,20 +24,22 @@ public partial class TicTacToeView : ContentView
                 UpdateGameBoard(btn.ClassId);
                 clicked++;
             }
-            if (clicked == 9)
+            if (DidCurrentPlayerWin(btn.ClassId) || clicked == 9)
             {
-                await mainPage.DisplayAlert("Game over", "Draw", "Ok");
-                CloseGame();
-            }
-            if (IsGameOver(btn.ClassId))
-            {
-                await App.Current.MainPage.DisplayAlert("Game Over", "You won", "OK");
+                if (DidCurrentPlayerWin(btn.ClassId))
+                {
+                    await App.Current.MainPage.DisplayAlert("Game Over", "You won", "OK");
+                }
+                else
+                {
+                    await mainPage.DisplayAlert("Game over", "Draw", "Ok");
+                }
                 CloseGame();
             }
         }
     }
 
-    private bool IsGameOver(String id)
+    private bool DidCurrentPlayerWin(String id)
     {
         if (GameBoard[0, 0] == current)
         {
