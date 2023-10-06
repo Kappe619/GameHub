@@ -20,15 +20,15 @@ public partial class TicTacToeView : ContentView
             if (btn.Text == " ")
             {
                 btn.Text = current;
-                current = ChangedString(current);
                 UpdateGameBoard(btn.ClassId);
                 clicked++;
             }
-            if (DidCurrentPlayerWin(btn.ClassId) || clicked == 9)
+            if (DidCurrentPlayerWin() || clicked == 9)
             {
-                if (DidCurrentPlayerWin(btn.ClassId))
-                {
-                    await App.Current.MainPage.DisplayAlert("Game Over", "You won", "OK");
+                if (DidCurrentPlayerWin())
+                {                    
+                    var msg = $"Player {current} won";
+                    await App.Current.MainPage.DisplayAlert("Game Over", msg, "OK");
                 }
                 else
                 {
@@ -36,10 +36,11 @@ public partial class TicTacToeView : ContentView
                 }
                 CloseGame();
             }
+            current = ChangedString(current);
         }
     }
 
-    private bool DidCurrentPlayerWin(String id)
+    private bool DidCurrentPlayerWin()
     {
         if (GameBoard[0, 0] == current)
         {
