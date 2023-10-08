@@ -57,10 +57,14 @@
 	  <None Remove="Resources\Images\hangmanpica.png" />
 	  <None Remove="Resources\Images\hangmanpicb.png" />
 	  <None Remove="Resources\Images\hangmanpicc.png" />
+	  <None Remove="ViewModels\" />
+	  <None Remove="Models\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Views\" />
 	  <Folder Include="Resources\Images\" />
+	  <Folder Include="ViewModels\" />
+	  <Folder Include="Models\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="Resources\Images\hangmanpica.png" />
