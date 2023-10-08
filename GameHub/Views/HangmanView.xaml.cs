@@ -1,9 +1,19 @@
-﻿namespace GameHub.Views;
+﻿using GameHub.Models;
+using GameHub.ViewModels;
+
+namespace GameHub.Views;
 
 public partial class HangmanView : ContentView
 {
-	public HangmanView()
+	MainPage mainPage;
+	HangmanModel model;
+	HangmanViewModel vm;
+
+	public HangmanView(MainPage mainPage)
 	{
+		this.mainPage = mainPage;
+		model = new HangmanModel();
+		vm = new HangmanViewModel(model, mainPage);
 		InitializeComponent();
 
 	}
