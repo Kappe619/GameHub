@@ -53,8 +53,18 @@
 
 	<ItemGroup>
 	  <None Remove="Views\" />
+	  <None Remove="Resources\Images\" />
+	  <None Remove="Resources\Images\hangmanpica.png" />
+	  <None Remove="Resources\Images\hangmanpicb.png" />
+	  <None Remove="Resources\Images\hangmanpicc.png" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Views\" />
+	  <Folder Include="Resources\Images\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <BundleResource Include="Resources\Images\hangmanpica.png" />
+	  <BundleResource Include="Resources\Images\hangmanpicb.png" />
+	  <BundleResource Include="Resources\Images\hangmanpicc.png" />
 	</ItemGroup>
 </Project>

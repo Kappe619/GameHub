@@ -3,11 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GameHub.Views.HangmanView">
     <VerticalStackLayout>
+        <Button Clicked="Button_Clicked" Text="test"></Button>
         <Label 
             Text="Hangman is comming soon"            
             FontSize="Title"
+            x:Name="lbl"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" >
+
+        </Label>
+
+         <Image
+             x:Name="image1"
+        Source="Images/hangmanpica.png"
+             
+             WidthRequest="100"
+             HeightRequest="100"
+        VerticalOptions="CenterAndExpand"
+        HorizontalOptions="Center" />
     </VerticalStackLayout>
 </ContentView>
 
