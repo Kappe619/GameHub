@@ -1,6 +1,5 @@
 ﻿using GameHub.Models;
 using GameHub.ViewModels;
-
 namespace GameHub.Views;
 
 public partial class HangmanView : ContentView
@@ -8,22 +7,29 @@ public partial class HangmanView : ContentView
 	MainPage mainPage;
 	HangmanModel model;
 	HangmanViewModel vm;
+	int wordLength;
 
-	public HangmanView(MainPage mainPage)
+	public HangmanView(MainPage mainPage, int wordLength = 4)
 	{
 		this.mainPage = mainPage;
-		model = new HangmanModel();
-		vm = new HangmanViewModel(model, mainPage);
-		InitializeComponent();
+		this.wordLength = wordLength;
+        model = new HangmanModel();
+        vm = new HangmanViewModel(model, mainPage, verticalStack, guessedCharsStack);
+        InitializeComponent();
+        //image1.Source = new FileImageSource { File = path1 };
 
-	}
+    }
 
-	public string path1 = "Images/hangmanpicb.png";
+    public string path1 = "Images/hangmanpicb.png";
     public string path2 = "Images/hangmanpicc.png";
+
 
     void Button_Clicked(System.Object sender, System.EventArgs e)
     {
-		image1.Source = new FileImageSource { File = path1 };
-    }
+		string s = charInputEditor.Text;
+		char c = char.Parse(s);
+        vm.MakeGuess(c, guessedCharsStack);
+	}
+
 }
 

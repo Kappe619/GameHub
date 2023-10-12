@@ -13,10 +13,10 @@ namespace GameHub
             InitializeComponent();
         }
 
-        private void AddHangmanView()
+        private void AddHangmanView()   //TODO: ask for word length
         {
             ClearStack();
-            hangmanView = new HangmanView();
+            hangmanView = new HangmanView(this);
             VerticalStack.Children.Add(hangmanView);
         }
 

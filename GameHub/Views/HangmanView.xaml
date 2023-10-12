@@ -2,25 +2,45 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GameHub.Views.HangmanView">
-    <VerticalStackLayout>
-        <Button Clicked="Button_Clicked" Text="test"></Button>
-        <Label 
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="WidthRequest" Value="20"/>
+                <Setter Property="HeightRequest" Value="20"/>
+                <Setter Property="FontSize" Value="12"/>
+            </Style>
+
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+
+    <VerticalStackLayout x:Name="verticalStack">
+
+        <Label x:Name="wrongCharsLbl"/>
+        <Label
             Text="Hangman is comming soon"            
             FontSize="Title"
             x:Name="lbl"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" >
-
+            HorizontalOptions="Center">
         </Label>
 
-         <Image
+        <Image
              x:Name="image1"
-        Source="Images/hangmanpica.png"
-             
+            Source="Images/hangmanpica.png"             
              WidthRequest="100"
              HeightRequest="100"
         VerticalOptions="CenterAndExpand"
         HorizontalOptions="Center" />
+
+        <HorizontalStackLayout x:Name="guessedCharsStack"/>
+
+        <HorizontalStackLayout>
+            <Editor x:Name="charInputEditor" Background="gray" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Title" MaxLength="1" WidthRequest="5" ></Editor>
+            <!--<Editor Completed="Button_Clicked" x:Name="charInputEditor" Background="gray" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Title" MaxLength="1" WidthRequest="5" ></Editor>-->
+            <Button Clicked="Button_Clicked" Text="guess"/>
+        </HorizontalStackLayout>
+
     </VerticalStackLayout>
 </ContentView>
-
