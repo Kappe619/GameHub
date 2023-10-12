@@ -27,12 +27,12 @@
         </Label>
 
         <Image
-             x:Name="image1"
-            Source="Images/hangmanpica.png"             
+             x:Name="failStateImg"
+            Source="Images/hangmanpicc.png"             
              WidthRequest="100"
              HeightRequest="100"
-        VerticalOptions="CenterAndExpand"
-        HorizontalOptions="Center" />
+            VerticalOptions="CenterAndExpand"
+            HorizontalOptions="Center" />
 
         <HorizontalStackLayout x:Name="guessedCharsStack"/>
 

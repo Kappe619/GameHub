@@ -7,39 +7,41 @@ namespace GameHub.ViewModels
     {
         HangmanModel model;
         MainPage mp;
+        Image failStateImg;
         string word;
         char[] guessedCharsArray;
-        int wrongGuessesCount = 0;
+        public int wrongGuessesCount = 0;
         string imagePath;
         int wordLenght;
         int maxWordLenght = 8;
         int guessesCount = 0;
         int charsSolved = 0;
-        int maxWrongGuesses = 3;
+        int maxWrongGuesses = 5;    //see switchCase in HangmanModel.cs
         List<char> wrongCharsList = new();
         public string wrongChars = "";
         VerticalStackLayout verticalStack;
         HorizontalStackLayout guessedCharsStack;
 
-        public HangmanViewModel(HangmanModel model, MainPage mainPage, VerticalStackLayout verticalStack, HorizontalStackLayout guessedCharsStack, int wordLenght = 4)
+        public HangmanViewModel(HangmanModel model, MainPage mainPage, VerticalStackLayout verticalStack, HorizontalStackLayout guessedCharsStack, Image failStateImg, int wordLenght = 4)
         {
-            StartGame();
+            this.failStateImg = failStateImg;
             this.model = model;
             this.mp = mainPage;
             this.verticalStack = verticalStack;
             this.wordLenght = wordLenght;   //User should be able to choose
             guessedCharsArray = new char[] { '_', '_', '_', '_', '_', '_', '_', '_', };
+            StartGame();
         }
 
-        public string ImagePath
-        {
-            get => model.getPath(wrongGuessesCount);
-            set => imagePath = value;
-        }
+        //public string ImagePath
+        //{
+        //    get => model.getPath(wrongGuessesCount);
+        //    set => imagePath = value;
+        //}
 
         string RandomWord()
         {
-            return "CDEFG"; //TODO: add logic, has to be upper case
+            return "ABC"; //TODO: add logic, has to be upper case
         }
 
         public void StartGame()
@@ -70,10 +72,9 @@ namespace GameHub.ViewModels
 
         public void MakeGuess(char guessedChar, HorizontalStackLayout stack)
         {
-            //TODO: add check if already guessed
             guessedChar = char.ToUpper(guessedChar);
 
-            if(wrongCharsList.Contains(guessedChar) || guessedCharsArray.Contains(guessedChar))
+            if (wrongCharsList.Contains(guessedChar) || guessedCharsArray.Contains(guessedChar))
             {
                 mp.DisplayAlert("Alert", "Char already tried", "ok");
             }
@@ -103,8 +104,7 @@ namespace GameHub.ViewModels
 
                     if (wrongGuessesCount == maxWrongGuesses)
                     {
-                        mp.DisplayAlert("Game over","Max wrong guesses reached", "ok");
-                        //TODO: Add game lost logic
+                        GameLost();
                     }
                 }
             }
@@ -115,6 +115,12 @@ namespace GameHub.ViewModels
         {
            //TODO: Add game won logic
            mp.DisplayAlert("Game over", "You won", "ok");
+        }
+
+        void GameLost()
+        {
+            mp.DisplayAlert("Game over", "Max wrong guesses reached", "ok");
+            //TODO: Add game lost logic
         }
 
         string SortedWrongGuesses()

@@ -3,11 +3,6 @@ namespace GameHub.Models
 {
 	public class HangmanModel
 	{
-        string path1 = "Images/hangmanpica.png";
-        string path2 = "Images/hangmanpicb.png";
-
-        string[] pathes = new string[] { "path1", "path2" };
-
         string word;
 
 		public string Word
@@ -16,23 +11,45 @@ namespace GameHub.Models
 			set => word = value;
 		}
 
-		public string getPath(int wrongGuesses)
+		//public string getPath(int wrongGuesses)
+		//{
+		//	return pathes[wrongGuesses];
+		//}
+
+		//public char getChar(int position)
+		//{
+		//	return word[position];	//TODO: add exception checks
+		//}
+
+
+		public ImageSource getSource(int wrongGuesses)	//TODO: add all correct images
 		{
-			return pathes[wrongGuesses];
+			switch (wrongGuesses)
+			{
+				case 1:
+					return ImageSource.FromFile("Images/hangmanpica.png");
+				case 2:
+                    return ImageSource.FromFile("Images/hangmanpicb.png");
+				case 3:
+					return ImageSource.FromFile("Images/hangmanpicc.png");
+				case 4:
+                    return ImageSource.FromFile("Images/hangmanpica.png");
+				case 5:
+                    return ImageSource.FromFile("Images/hangmanpicb.png");	
+
+                default:	//maxWrongGuesses in vm
+                    return ImageSource.FromFile("Images/hangmanpicc.png");                    
+            }
 		}
-
-		public char getChar(int position)
-		{
-			return word[position];	//TODO: add exception checks
-		}
-
-
-
 
 		public HangmanModel()
 		{
-			//TODO: set pathes
-		}
-	}
+            //TODO: set pathes
+            ImageSource state1 = ImageSource.FromFile("Images/hangmanpica.png");
+            ImageSource state2 = ImageSource.FromFile("Images/hangmanpicb.png");
+            ImageSource state3 = ImageSource.FromFile("Images/hangmanpicc.png");
+
+        }
+    }
 }
 
