@@ -31,6 +31,6 @@ public partial class HangmanView : ContentView
 
 	void updateFailImg(int wrongGuesses)
 	{
-		failStateImg.Source = model.getSource(wrongGuesses);
+		failStateImg.Source = model.GetImageSource(wrongGuesses);
 	}
 }

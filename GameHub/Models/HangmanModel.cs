@@ -6,7 +6,8 @@ namespace GameHub.Models
 	{
         string word;
 		WordGenerator generator;
-
+		List<ImageSource> ImageList;
+ 
 		public string Word
 		{
 			get => word;
@@ -18,36 +19,36 @@ namespace GameHub.Models
 			Word = generator.GetRandomWord();
 		}
 
-		public ImageSource getSource(int wrongGuesses)	//TODO: add all correct images
+		public HangmanModel(Language language = Language.German, int wordLength = 5)
 		{
-			switch (wrongGuesses)
-			{
-				case 1:
-					return ImageSource.FromFile("Images/hangmanpica.png");
-				case 2:
-                    return ImageSource.FromFile("Images/hangmanpicb.png");
-				case 3:
-					return ImageSource.FromFile("Images/hangmanpicc.png");
-				case 4:
-                    return ImageSource.FromFile("Images/hangmanpica.png");
-				case 5:
-                    return ImageSource.FromFile("Images/hangmanpicb.png");	
+			this.generator = new(language, wordLength);	//min length 3, max length 15			
+			NewRandomWord();
+			ImageList = CreateEasyImageList();
+        }
 
-                default:	//maxWrongGuesses in vm
-                    return ImageSource.FromFile("Images/hangmanpicc.png");                    
-            }
+		List<ImageSource> CreateEasyImageList()
+		{
+			List<ImageSource> list = new();
+
+            list.Add(ImageSource.FromFile("Images/imgstart.png"));
+            list.Add(ImageSource.FromFile("Images/imga.png"));
+            list.Add(ImageSource.FromFile("Images/imgb.png"));
+            list.Add(ImageSource.FromFile("Images/imgc.png"));
+            list.Add(ImageSource.FromFile("Images/imgd.png"));
+            list.Add(ImageSource.FromFile("Images/imge.png"));
+            list.Add(ImageSource.FromFile("Images/imgf.png"));
+            list.Add(ImageSource.FromFile("Images/imgg.png"));
+            list.Add(ImageSource.FromFile("Images/imgh.png"));
+            list.Add(ImageSource.FromFile("Images/imgi.png"));
+            list.Add(ImageSource.FromFile("Images/imglost.png"));
+
+			return list;
 		}
 
-		public HangmanModel(Language language = Language.German)
+		public ImageSource GetImageSource(int wrongGuesses)
 		{
-			this.generator = new(language);
-			NewRandomWord();
-            //TODO: set pathes
-            ImageSource state1 = ImageSource.FromFile("Images/hangmanpica.png");
-            ImageSource state2 = ImageSource.FromFile("Images/hangmanpicb.png");
-            ImageSource state3 = ImageSource.FromFile("Images/hangmanpicc.png");
-
-        }
+			return ImageList[wrongGuesses];
+		}
     }
 }
 

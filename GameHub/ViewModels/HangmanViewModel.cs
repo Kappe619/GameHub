@@ -15,20 +15,20 @@ namespace GameHub.ViewModels
         int maxWordLenght = 8;
         int guessesCount = 0;
         int charsSolved = 0;
-        int maxWrongGuesses = 5;    //see switchCase in HangmanModel.cs
+        int maxWrongGuesses = 11;   //only 11 Images, max index 10
         List<char> wrongCharsList = new();
         public string wrongChars = "";
         VerticalStackLayout verticalStack;
         HorizontalStackLayout guessedCharsStack;
 
-        public HangmanViewModel(HangmanModel model, MainPage mainPage, VerticalStackLayout verticalStack, HorizontalStackLayout guessedCharsStack, Image failStateImg, int wordLenght = 4)
+        public HangmanViewModel(HangmanModel model, MainPage mainPage, VerticalStackLayout verticalStack, HorizontalStackLayout guessedCharsStack, Image failStateImg, int wordLenght = 5)
         {
             this.failStateImg = failStateImg;
             this.model = model;
             this.mp = mainPage;
             this.verticalStack = verticalStack;
-            this.wordLenght = wordLenght;   //User should be able to choose
-            guessedCharsArray = new char[] { '_', '_', '_', '_', '_', '_', '_', '_', };
+            this.wordLenght = wordLenght;   //TODO: User should be able to choose
+            guessedCharsArray = new char[] { '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', };
             StartGame();
         }
 
@@ -43,11 +43,7 @@ namespace GameHub.ViewModels
         public void StartGame()
         {
             word = model.Word;
-            model.NewRandomWord();
-            word = model.Word;
-            model.NewRandomWord();
-            word = model.Word;
-
+            //TODO: Update labels before first guess
             
             guessedCharsArray = new char[word.Length];
             guessesCount = 0;
@@ -57,18 +53,18 @@ namespace GameHub.ViewModels
         public HorizontalStackLayout UpdatedCharStack()
         {
             HorizontalStackLayout st = new();
-            Label lbl;
+            Label lbl;            
             for (int i = 0; i < word.Length; i++)
             {
                 lbl = new Label
                 {
                     Text = guessedCharsArray[i].ToString(),
                     FontSize = 50,
-                    Margin = new Thickness(5)
+                    Margin = new Thickness(20),                    
                 };
                 st.Children.Add(lbl);
             }
-            st.Background = Brush.Pink;
+            st.Background = Brush.LightGray;
             return st;
         }
 
@@ -121,7 +117,7 @@ namespace GameHub.ViewModels
 
         void GameLost()
         {
-            mp.DisplayAlert("Game over", "Max wrong guesses reached", "ok");
+            mp.DisplayAlert("Game over", "Max wrong guesses reached, the word solution was " + word, "ok");
             //TODO: Add game lost logic
         }
 

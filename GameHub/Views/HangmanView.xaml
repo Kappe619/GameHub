@@ -19,7 +19,7 @@
 
         <Label x:Name="wrongCharsLbl"/>
         <Label
-            Text="Hangman is comming soon"            
+            Text="Hangman"            
             FontSize="Title"
             x:Name="lbl"
             VerticalOptions="Center" 
