@@ -1,5 +1,4 @@
-﻿using System;
-namespace GameHub.Enums
+﻿namespace GameHub.Enums
 {
 	public enum Language
 	{

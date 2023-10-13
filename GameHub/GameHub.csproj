@@ -49,6 +49,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -59,16 +60,28 @@
 	  <None Remove="Resources\Images\hangmanpicc.png" />
 	  <None Remove="ViewModels\" />
 	  <None Remove="Models\" />
+	  <None Remove="Resources\WordLists\" />
+	  <None Remove="Enums\" />
+	  <None Remove="TestFolder\" />
+	  <None Remove="Services\" />
+	  <None Remove="Resources\WordLists\GermanWords.json" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Views\" />
 	  <Folder Include="Resources\Images\" />
 	  <Folder Include="ViewModels\" />
 	  <Folder Include="Models\" />
+	  <Folder Include="Resources\WordLists\" />
+	  <Folder Include="Enums\" />
+	  <Folder Include="TestFolder\" />
+	  <Folder Include="Services\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <BundleResource Include="Resources\Images\hangmanpica.png" />
 	  <BundleResource Include="Resources\Images\hangmanpicb.png" />
 	  <BundleResource Include="Resources\Images\hangmanpicc.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\WordLists\GermanWords.json" />
 	</ItemGroup>
 </Project>

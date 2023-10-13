@@ -1,9 +1,11 @@
-﻿using System;
+﻿using GameHub.Enums;
+using GameHub.Services;
 namespace GameHub.Models
 {
-	public class HangmanModel
+    public class HangmanModel
 	{
         string word;
+		WordGenerator generator;
 
 		public string Word
 		{
@@ -11,16 +13,10 @@ namespace GameHub.Models
 			set => word = value;
 		}
 
-		//public string getPath(int wrongGuesses)
-		//{
-		//	return pathes[wrongGuesses];
-		//}
-
-		//public char getChar(int position)
-		//{
-		//	return word[position];	//TODO: add exception checks
-		//}
-
+		public void NewRandomWord()
+		{
+			Word = generator.GetRandomWord();
+		}
 
 		public ImageSource getSource(int wrongGuesses)	//TODO: add all correct images
 		{
@@ -42,8 +38,10 @@ namespace GameHub.Models
             }
 		}
 
-		public HangmanModel()
+		public HangmanModel(Language language = Language.German)
 		{
+			this.generator = new(language);
+			NewRandomWord();
             //TODO: set pathes
             ImageSource state1 = ImageSource.FromFile("Images/hangmanpica.png");
             ImageSource state2 = ImageSource.FromFile("Images/hangmanpicb.png");

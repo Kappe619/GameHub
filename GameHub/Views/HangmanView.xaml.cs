@@ -34,4 +34,3 @@ public partial class HangmanView : ContentView
 		failStateImg.Source = model.getSource(wrongGuesses);
 	}
 }
-

@@ -1,5 +1,4 @@
-﻿using System;
-using GameHub.Models;
+﻿using GameHub.Models;
 
 namespace GameHub.ViewModels
 {
@@ -33,20 +32,23 @@ namespace GameHub.ViewModels
             StartGame();
         }
 
-        //public string ImagePath
-        //{
-        //    get => model.getPath(wrongGuessesCount);
-        //    set => imagePath = value;
-        //}
 
         string RandomWord()
         {
-            return "ABC"; //TODO: add logic, has to be upper case
+            model.NewRandomWord();
+            word = model.Word.ToUpper();
+            return word;
         }
 
         public void StartGame()
         {
-            word = RandomWord();
+            word = model.Word;
+            model.NewRandomWord();
+            word = model.Word;
+            model.NewRandomWord();
+            word = model.Word;
+
+            
             guessedCharsArray = new char[word.Length];
             guessesCount = 0;
             wrongGuessesCount = 0;
