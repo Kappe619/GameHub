@@ -1,4 +1,4 @@
-﻿using GameHub.Enums;
+using GameHub.Enums;
 using GameHub.Services;
 namespace GameHub.Models
 {
@@ -19,7 +19,7 @@ namespace GameHub.Models
 			Word = generator.GetRandomWord();
 		}
 
-		public HangmanModel(Language language = Language.English, int wordLength = 5)
+		public HangmanModel(int wordLength, Language language = Language.English)
 		{
 			this.generator = new(language, wordLength);	//min length 3, max length 15			
 			NewRandomWord();

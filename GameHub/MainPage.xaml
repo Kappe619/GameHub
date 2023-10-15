@@ -6,8 +6,27 @@
         <VerticalStackLayout>
 
             <HorizontalStackLayout>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Margin="10" FontSize="Title" Text="Word length: " Grid.ColumnSpan="2"/>
+                    <Stepper  Grid.Row="1" Grid.Column="0" Minimum="3" Maximum="12" Value="{Binding StepperValue, Mode=TwoWay}" ValueChanged="Stepper_ValueChanged"/>
+                    <Label Grid.Row="1" Grid.Column="1" Margin="10" x:Name="StepperLbl" FontSize="Title" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </Grid>
+
                 <Button Text="Tic Tac Toe" Clicked="TicTacToeBtnClicked"/>
                 <Button Text="Hangman" Clicked="HangmanBtnClicked"/>
+                <VerticalStackLayout Margin="20">
+    
+                </VerticalStackLayout>
             </HorizontalStackLayout>
 
             <VerticalStackLayout x:Name="VerticalStack"/>

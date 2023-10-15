@@ -1,4 +1,6 @@
 using System;
+using GameHub.Enums;
+using GameHub.Services;
 using GameHub.Views;
 
 namespace GameHub
@@ -13,12 +15,16 @@ namespace GameHub
         public MainPage()
         {
             InitializeComponent();
-        }
+            double stepperValue = StepperValue;
 
-        private void AddHangmanView()   //TODO: ask for word length
+            BindingContext = this;
+        }
+        //TODO: ask for word length
+        private void AddHangmanView()
         {
             ClearStack();
-            hangmanView = new HangmanView(this);
+            //await AskForWordLength();
+            hangmanView = new HangmanView(this, (int)StepperValue);
             VerticalStack.Children.Add(hangmanView);
         }
 
