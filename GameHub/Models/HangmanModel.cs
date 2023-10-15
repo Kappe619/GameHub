@@ -1,4 +1,4 @@
-using GameHub.Enums;
+﻿using GameHub.Enums;
 using GameHub.Services;
 namespace GameHub.Models
 {

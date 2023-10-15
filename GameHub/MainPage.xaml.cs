@@ -15,8 +15,8 @@ namespace GameHub
         public MainPage()
         {
             InitializeComponent();
-            double stepperValue = StepperValue;
-
+            StepperValue = 5;
+            StepperLbl.Text = $"Level: {StepperValue}";
             BindingContext = this;
         }
         //TODO: ask for word length

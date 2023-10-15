@@ -28,7 +28,7 @@
 
         <Image
              x:Name="failStateImg"
-            Source="Images/hangmanpicc.png"             
+            Source="Images/hangmanimgstart.png"             
              WidthRequest="100"
              HeightRequest="100"
             VerticalOptions="CenterAndExpand"
@@ -38,7 +38,6 @@
 
         <HorizontalStackLayout>
             <Editor x:Name="charInputEditor" Background="gray" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Title" MaxLength="1" WidthRequest="5" ></Editor>
-            <!--<Editor Completed="Button_Clicked" x:Name="charInputEditor" Background="gray" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Title" MaxLength="1" WidthRequest="5" ></Editor>-->
             <Button Clicked="Button_Clicked" Text="guess"/>
         </HorizontalStackLayout>
 

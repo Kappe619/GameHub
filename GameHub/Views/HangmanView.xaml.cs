@@ -1,4 +1,4 @@
-using GameHub.Models;
+﻿using GameHub.Models;
 using GameHub.ViewModels;
 namespace GameHub.Views;
 

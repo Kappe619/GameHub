@@ -44,7 +44,7 @@ namespace GameHub.ViewModels
         {
             word = model.Word;
             //TODO: Update labels before first guess
-            
+
             guessedCharsArray = new char[word.Length];
             guessesCount = 0;
             wrongGuessesCount = 0;
@@ -53,14 +53,14 @@ namespace GameHub.ViewModels
         public HorizontalStackLayout UpdatedCharStack()
         {
             HorizontalStackLayout st = new();
-            Label lbl;            
+            Label lbl;
             for (int i = 0; i < word.Length; i++)
             {
                 lbl = new Label
                 {
                     Text = guessedCharsArray[i].ToString(),
                     FontSize = 50,
-                    Margin = new Thickness(20),                    
+                    Margin = new Thickness(20),
                 };
                 st.Children.Add(lbl);
             }
@@ -111,13 +111,18 @@ namespace GameHub.ViewModels
 
         void GameWon()
         {
-           //TODO: Add game won logic
-           mp.DisplayAlert("Game over", "You won", "ok");
+            //TODO: Add game won logic
+            mp.DisplayAlert("Game over", $"You won, the war was {word}.", "ok");
+            mp.ClearStack();
+
         }
 
         void GameLost()
         {
-            mp.DisplayAlert("Game over", "Max wrong guesses reached, the word solution was " + word, "ok");
+            //mp.DisplayAlert("Game over", $"Max wrong guesses reached, the word solution was {word}.", "ok");
+            mp.DisplayAlert("Game over", $"Max wrong guesses reached, the word was {word}.", "ok");
+            mp.ClearStack();
+
             //TODO: Add game lost logic
         }
 
@@ -126,8 +131,9 @@ namespace GameHub.ViewModels
             wrongCharsList.Sort();
             string s = "Wrong: ";
 
-            foreach (char c in wrongCharsList) {
-                s += c;                
+            foreach (char c in wrongCharsList)
+            {
+                s += c;
             }
             return s;
         }
@@ -138,5 +144,6 @@ namespace GameHub.ViewModels
             stack.Children.Add(UpdatedCharStack());
             stack.Children.Add(new Label { Text = SortedWrongGuesses() });
         }
+
     }
 }
