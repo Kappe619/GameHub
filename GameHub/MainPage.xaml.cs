@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using GameHub.Views;
 
 namespace GameHub
@@ -7,6 +7,8 @@ namespace GameHub
     {
         private HangmanView hangmanView;
         private TicTacToeView ticTacToeView;
+        public double StepperValue { get; set; }
+        private Language defaultLanguage;   //TODO: Add option to change language
 
         public MainPage()
         {

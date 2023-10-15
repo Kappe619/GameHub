@@ -19,7 +19,7 @@ namespace GameHub.Models
 			Word = generator.GetRandomWord();
 		}
 
-		public HangmanModel(Language language = Language.German, int wordLength = 5)
+		public HangmanModel(Language language = Language.English, int wordLength = 5)
 		{
 			this.generator = new(language, wordLength);	//min length 3, max length 15			
 			NewRandomWord();

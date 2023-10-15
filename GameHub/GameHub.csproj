@@ -75,6 +75,7 @@
 	  <None Remove="Resources\Images\imgh.png" />
 	  <None Remove="Resources\Images\imgi.png" />
 	  <None Remove="Resources\Images\imglost.png" />
+	  <None Remove="Resources\WordLists\EnglishWords.json" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Views\" />
@@ -103,5 +104,6 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <EmbeddedResource Include="Resources\WordLists\GermanWords.json" />
+	  <EmbeddedResource Include="Resources\WordLists\EnglishWords.json" />
 	</ItemGroup>
 </Project>
