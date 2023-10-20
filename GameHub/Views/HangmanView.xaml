@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GameHub.Views.HangmanView">
@@ -34,12 +34,14 @@
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="Center" />
 
-        <HorizontalStackLayout x:Name="guessedCharsStack"/>
+        <Frame BorderColor="Gray" Margin="10">
 
         <HorizontalStackLayout>
             <Editor x:Name="charInputEditor" Background="gray" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Title" MaxLength="1" WidthRequest="5" ></Editor>
             <Button Clicked="Button_Clicked" Text="guess"/>
         </HorizontalStackLayout>
+
+        </Frame>
 
     </VerticalStackLayout>
 </ContentView>
