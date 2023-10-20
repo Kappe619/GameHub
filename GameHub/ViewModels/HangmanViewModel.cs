@@ -1,4 +1,4 @@
-﻿using GameHub.Models;
+using GameHub.Models;
 
 namespace GameHub.ViewModels
 {
@@ -48,6 +48,28 @@ namespace GameHub.ViewModels
             guessedCharsArray = new char[word.Length];
             guessesCount = 0;
             wrongGuessesCount = 0;
+        }
+
+        public HorizontalStackLayout CharsInBordersStack()
+        {
+            var stack = new HorizontalStackLayout();
+            Border border;
+            Label lbl = new Label();
+
+            for (int i = 0; i < word.Length; i++)
+            {
+                lbl.Text = "testing";
+                //string s = guessedCharsArray[i].ToString();
+                //lbl.Text = s;
+                border = new Border()
+                {
+                    Content = lbl,
+                    Margin = new Thickness(20),
+                };
+                border.Content = lbl;
+                stack.Children.Add(border);
+            }
+            return stack;
         }
 
         public HorizontalStackLayout UpdatedCharStack()
