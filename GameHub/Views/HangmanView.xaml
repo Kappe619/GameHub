@@ -33,6 +33,7 @@
              HeightRequest="100"
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="Center" />
+        <HorizontalStackLayout x:Name="baseGuessedCharsStack"/>
 
         <Frame BorderColor="Gray" Margin="10">
 
