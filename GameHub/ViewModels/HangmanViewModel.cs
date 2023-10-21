@@ -1,5 +1,4 @@
 using GameHub.Models;
-
 namespace GameHub.ViewModels
 {
     public class HangmanViewModel
@@ -11,7 +10,6 @@ namespace GameHub.ViewModels
         char[] guessedCharsArray;
         public int wrongGuessesCount = 0;
         string imagePath;
-        int wordLenght;
         int maxWordLenght = 8;
         int guessesCount = 0;
         int charsSolved = 0;
@@ -27,26 +25,24 @@ namespace GameHub.ViewModels
             this.model = model;
             this.mp = mainPage;
             this.verticalStack = verticalStack;
-            this.wordLenght = wordLenght;   //TODO: User should be able to choose
-            guessedCharsArray = new char[] { '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', '_', };
             StartGame();
+            UpdateLabels(guessedCharsStack);
         }
 
 
-        string RandomWord()
-        {
-            model.NewRandomWord();
-            word = model.Word.ToUpper();
-            return word;
-        }
+        //string RandomWord(int wordLength)
+        //{
+        //    model.NewRandomWord();
+        //    word = model.Word.ToUpper();
+        //    return word;
+        //}
 
         public void StartGame()
         {
             word = model.Word;
-            //TODO: Update labels before first guess
-
             guessedCharsArray = new char[word.Length];
             guessesCount = 0;
+
             wrongGuessesCount = 0;
         }
 
@@ -54,19 +50,27 @@ namespace GameHub.ViewModels
         {
             var stack = new HorizontalStackLayout();
             Border border;
-            Label lbl = new Label();
 
             for (int i = 0; i < word.Length; i++)
-            {
-                lbl.Text = "testing";
-                //string s = guessedCharsArray[i].ToString();
-                //lbl.Text = s;
+                {
+                string s = guessedCharsArray[i].ToString();
+                Label lbl = new Label() {
+                    FontSize = 30,
+                    HorizontalTextAlignment = TextAlignment.Center,
+                    VerticalTextAlignment = TextAlignment.Center,
+                };
+
+
+
+                lbl.Text = s;
                 border = new Border()
                 {
                     Content = lbl,
-                    Margin = new Thickness(20),
+                    HeightRequest = 50,
+                    WidthRequest = 50,
+                    Margin = new Thickness(2),
+                   
                 };
-                border.Content = lbl;
                 stack.Children.Add(border);
             }
             return stack;
@@ -163,9 +167,8 @@ namespace GameHub.ViewModels
         void UpdateLabels(HorizontalStackLayout stack)
         {
             stack.Clear();
-            stack.Children.Add(UpdatedCharStack());
+            stack.Children.Add(CharsInBordersStack());
             stack.Children.Add(new Label { Text = SortedWrongGuesses() });
         }
-
     }
 }

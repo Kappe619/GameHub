@@ -49,5 +49,14 @@ namespace GameHub
         {
             VerticalStack.Clear();
         }
+
+        void Stepper_ValueChanged(System.Object sender, Microsoft.Maui.Controls.ValueChangedEventArgs e)
+        {
+            if (sender is Stepper s)
+            {
+                this.StepperValue = s.Value;
+            }
+            StepperLbl.Text = $"Level: {StepperValue}";
+        }
     }
 }
