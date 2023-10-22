@@ -9,6 +9,7 @@ public partial class HangmanView : ContentView
     HangmanViewModel vm;
     Image pic;
 
+    //TODO: Max word length German is 15, English max is 11, add check or more/less words
     public HangmanView(MainPage mainPage, int wordLength = 4)
     {
         InitializeComponent();
