@@ -18,6 +18,7 @@ namespace GameHub.ViewModels
         public string wrongChars = "";
         VerticalStackLayout verticalStack;
         HorizontalStackLayout guessedCharsStack;
+        int defaultFontSize = 20;
 
         public HangmanViewModel(HangmanModel model, MainPage mainPage, VerticalStackLayout verticalStack, HorizontalStackLayout guessedCharsStack, Image failStateImg, int wordLenght = 5)
         {
@@ -52,10 +53,11 @@ namespace GameHub.ViewModels
             Border border;
 
             for (int i = 0; i < word.Length; i++)
-                {
+            {
                 string s = guessedCharsArray[i].ToString();
-                Label lbl = new Label() {
-                    FontSize = 30,
+                Label lbl = new Label()
+                {
+                    FontSize = defaultFontSize,
                     HorizontalTextAlignment = TextAlignment.Center,
                     VerticalTextAlignment = TextAlignment.Center,
                 };
@@ -69,7 +71,7 @@ namespace GameHub.ViewModels
                     HeightRequest = 50,
                     WidthRequest = 50,
                     Margin = new Thickness(2),
-                   
+
                 };
                 stack.Children.Add(border);
             }
@@ -85,7 +87,7 @@ namespace GameHub.ViewModels
                 lbl = new Label
                 {
                     Text = guessedCharsArray[i].ToString(),
-                    FontSize = 50,
+                    FontSize = defaultFontSize,
                     Margin = new Thickness(20),
                 };
                 st.Children.Add(lbl);
@@ -155,11 +157,15 @@ namespace GameHub.ViewModels
         string SortedWrongGuesses()
         {
             wrongCharsList.Sort();
-            string s = "Wrong: ";
+            string s = "Wrong chars: ";
 
-            foreach (char c in wrongCharsList)
+            for (int i = 0; i < wrongCharsList.Count; i++)
             {
-                s += c;
+                s += wrongCharsList[i];
+                if (i < wrongCharsList.Count - 1)
+                {
+                    s += ", ";
+                }
             }
             return s;
         }
@@ -168,7 +174,14 @@ namespace GameHub.ViewModels
         {
             stack.Clear();
             stack.Children.Add(CharsInBordersStack());
-            stack.Children.Add(new Label { Text = SortedWrongGuesses() });
+            stack.Children.Add(new Label
+            {
+                Text = SortedWrongGuesses(),
+                Margin = 10,
+                FontSize = defaultFontSize,
+                VerticalTextAlignment = TextAlignment.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+            });
         }
     }
 }
