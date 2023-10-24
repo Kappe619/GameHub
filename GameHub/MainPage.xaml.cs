@@ -23,9 +23,20 @@ namespace GameHub
         private void AddHangmanView()
         {
             ClearStack();
-            //await AskForWordLength();
-            hangmanView = new HangmanView(this, (int)StepperValue);
-            VerticalStack.Children.Add(hangmanView);
+
+            var selected = LanguagePicker.SelectedItem.ToString();
+            Language selectedLanguage;
+
+            if (Enum.TryParse(selected, out selectedLanguage))
+            {
+                hangmanView = new HangmanView(this, (int)StepperValue, selectedLanguage);
+                VerticalStack.Children.Add(hangmanView);
+            }
+            else
+            {
+                
+            }
+            
         }
 
         private void AddTicTacToeView()
@@ -58,5 +69,6 @@ namespace GameHub
             }
             StepperLbl.Text = $"Level: {StepperValue}";
         }
+
     }
 }
