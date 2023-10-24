@@ -5,16 +5,12 @@ namespace GameHub.Views;
 
 public partial class TicTacToeView : ContentView
 {
-<<<<<<< HEAD
     MainPage mainPage;
     TicTacToeViewModel vm;
     TicTacToeModel model;
 
     public TicTacToeView(MainPage mainPage)
-=======
-    Page mainPage;
-    public TicTacToeView(Page mainPage)
->>>>>>> main
+
     {
         this.mainPage = mainPage;
         model = new TicTacToeModel();
@@ -22,9 +18,7 @@ public partial class TicTacToeView : ContentView
         InitializeComponent();
     }
 
-<<<<<<< HEAD
-    void SquareClicked(System.Object sender, System.EventArgs e)
-=======
+    //void SquareClicked(System.Object sender, System.EventArgs e)
     string current = "X";
     string[,] GameBoard = new String[3, 3];
     int clicked = 0;
@@ -94,8 +88,8 @@ public partial class TicTacToeView : ContentView
     }
 
     void CloseGame()
->>>>>>> main
     {
-        vm.SquareClicked(sender as Button);
+        //vm.SquareClicked(sender as Button);
+        mainPage.ClearStack();
     }
 }
