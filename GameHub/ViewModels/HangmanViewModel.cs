@@ -30,20 +30,11 @@ namespace GameHub.ViewModels
             UpdateLabels(guessedCharsStack);
         }
 
-
-        //string RandomWord(int wordLength)
-        //{
-        //    model.NewRandomWord();
-        //    word = model.Word.ToUpper();
-        //    return word;
-        //}
-
         public void StartGame()
         {
             word = model.Word;
             guessedCharsArray = new char[word.Length];
             guessesCount = 0;
-
             wrongGuessesCount = 0;
         }
 
@@ -55,7 +46,7 @@ namespace GameHub.ViewModels
             for (int i = 0; i < word.Length; i++)
             {
                 string s = guessedCharsArray[i].ToString();
-                Label lbl = new Label()
+                Label lbl = new()
                 {
                     FontSize = defaultFontSize,
                     HorizontalTextAlignment = TextAlignment.Center,
@@ -139,19 +130,14 @@ namespace GameHub.ViewModels
 
         void GameWon()
         {
-            //TODO: Add game won logic
-            mp.DisplayAlert("Game over", $"You won, the war was {word}.", "ok");
+            mp.DisplayAlert("Game over", $"You won, the word was {word}.", "ok");
             mp.ClearStack();
-
         }
 
         void GameLost()
         {
-            //mp.DisplayAlert("Game over", $"Max wrong guesses reached, the word solution was {word}.", "ok");
             mp.DisplayAlert("Game over", $"Max wrong guesses reached, the word was {word}.", "ok");
             mp.ClearStack();
-
-            //TODO: Add game lost logic
         }
 
         string SortedWrongGuesses()

@@ -28,21 +28,22 @@ namespace GameHub.Models
 
 		List<ImageSource> CreateEasyImageList()
 		{
-			List<ImageSource> list = new();
+            List<ImageSource> list = new()
+            {
+                ImageSource.FromFile("Images/imgstart.png"),
+                ImageSource.FromFile("Images/imga.png"),
+                ImageSource.FromFile("Images/imgb.png"),
+                ImageSource.FromFile("Images/imgc.png"),
+                ImageSource.FromFile("Images/imgd.png"),
+                ImageSource.FromFile("Images/imge.png"),
+                ImageSource.FromFile("Images/imgf.png"),
+                ImageSource.FromFile("Images/imgg.png"),
+                ImageSource.FromFile("Images/imgh.png"),
+                ImageSource.FromFile("Images/imgi.png"),
+                ImageSource.FromFile("Images/imglost.png")
+            };
 
-            list.Add(ImageSource.FromFile("Images/imgstart.png"));
-            list.Add(ImageSource.FromFile("Images/imga.png"));
-            list.Add(ImageSource.FromFile("Images/imgb.png"));
-            list.Add(ImageSource.FromFile("Images/imgc.png"));
-            list.Add(ImageSource.FromFile("Images/imgd.png"));
-            list.Add(ImageSource.FromFile("Images/imge.png"));
-            list.Add(ImageSource.FromFile("Images/imgf.png"));
-            list.Add(ImageSource.FromFile("Images/imgg.png"));
-            list.Add(ImageSource.FromFile("Images/imgh.png"));
-            list.Add(ImageSource.FromFile("Images/imgi.png"));
-            list.Add(ImageSource.FromFile("Images/imglost.png"));
-
-			return list;
+            return list;
 		}
 
 		public ImageSource GetImageSource(int wrongGuesses)

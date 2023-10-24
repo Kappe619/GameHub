@@ -10,7 +10,7 @@ namespace GameHub
         private HangmanView hangmanView;
         private TicTacToeView ticTacToeView;
         public double StepperValue { get; set; }
-        private Language defaultLanguage;   //TODO: Add option to change language
+        private Language defaultLanguage;
 
         public MainPage()
         {
@@ -19,7 +19,6 @@ namespace GameHub
             StepperLbl.Text = $"Level: {StepperValue}";
             BindingContext = this;
         }
-        //TODO: ask for word length
         private void AddHangmanView()
         {
             ClearStack();
@@ -33,10 +32,7 @@ namespace GameHub
                 VerticalStack.Children.Add(hangmanView);
             }
             else
-            {
-                
-            }
-            
+            { }
         }
 
         private void AddTicTacToeView()

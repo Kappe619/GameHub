@@ -23,7 +23,6 @@ namespace GameHub.Services
             }
             int index = random.Next(0, words.Count);
             return words[index];
-
         }
 
         void LoadWordsFromFile(Language language, int wordLength)
@@ -44,7 +43,6 @@ namespace GameHub.Services
 
         private string GetResourcePath(Language language)
         {
-            // Hier sollte der Pfad zu Ihrer JSON-Datei relativ zum Namespace sein
             //json files build action has to be "embedded resource"
             string path = $"GameHub.Resources.WordLists.{language}Words.json";
             return path;

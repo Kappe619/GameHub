@@ -25,10 +25,10 @@ public partial class HangmanView : ContentView
         char c = char.Parse(s);
 
         vm.MakeGuess(c, baseGuessedCharsStack);
-        updateFailImg(vm.wrongGuessesCount);
+        UpdateFailImg(vm.wrongGuessesCount);
     }
 
-    void updateFailImg(int wrongGuesses)
+    void UpdateFailImg(int wrongGuesses)
     {
         failStateImg.Source = model.GetImageSource(wrongGuesses);
     }

@@ -40,8 +40,6 @@
 
             <VerticalStackLayout x:Name="VerticalStack"/>
 
-
-
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
