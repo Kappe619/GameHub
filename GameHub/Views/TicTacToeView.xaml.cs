@@ -1,5 +1,6 @@
-﻿using GameHub.Models;
+using GameHub.Models;
 using GameHub.ViewModels;
+using GameHub.Enums;
 
 namespace GameHub.Views;
 
@@ -8,13 +9,15 @@ public partial class TicTacToeView : ContentView
     MainPage mainPage;
     TicTacToeViewModel vm;
     TicTacToeModel model;
+    Difficulty diff;
 
-    public TicTacToeView(MainPage mainPage)
+    public TicTacToeView(MainPage mainPage, Difficulty diff = Difficulty.Easy)
 
     {
         this.mainPage = mainPage;
+        this.diff = diff;
         model = new TicTacToeModel();
-        vm = new TicTacToeViewModel(model, mainPage);
+        vm = new TicTacToeViewModel(model, mainPage, diff);
         InitializeComponent();
     }
 
