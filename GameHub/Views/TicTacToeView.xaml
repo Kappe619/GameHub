@@ -12,21 +12,21 @@
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
 
             <HorizontalStackLayout>
-        <Button ClassId="00" x:Name="a1" HeightRequest="20" WidthRequest="20" FontSize="Header" Clicked="SquareClicked" Text=" "/>
-        <Button ClassId="01" x:Name="a2" HeightRequest="20" WidthRequest="20" FontSize="Header" Clicked="SquareClicked" Text=" "/>
-        <Button ClassId="02" HeightRequest="20" WidthRequest="20" FontSize="Header" Clicked="SquareClicked" Text=" "/>
+        <Button ClassId="00" HeightRequest="50" WidthRequest="50" FontSize="Header" Margin="1" Clicked="SquareClicked" Text=" "/>
+        <Button ClassId="01" HeightRequest="50" WidthRequest="50" FontSize="Header" Margin="1" Clicked="SquareClicked" Text=" "/>
+        <Button ClassId="02" HeightRequest="50" WidthRequest="50" FontSize="Header" Margin="1" Clicked="SquareClicked" Text=" "/>
             </HorizontalStackLayout>
 
             <HorizontalStackLayout>
-        <Button ClassId="10"  x:Name="b1" HeightRequest="20" WidthRequest="20" FontSize="Header" Clicked="SquareClicked" Text=" "/>
-        <Button ClassId="11" HeightRequest="20" WidthRequest="20" FontSize="Header" Clicked="SquareClicked" Text=" "/>
-        <Button ClassId="12" HeightRequest="20" WidthRequest="20" FontSize="Header" Clicked="SquareClicked" Text=" "/>           
+        <Button ClassId="10" HeightRequest="50" WidthRequest="50" FontSize="Header" Margin="1" Clicked="SquareClicked" Text=" "/>
+        <Button ClassId="11" HeightRequest="50" WidthRequest="50" FontSize="Header" Margin="1" Clicked="SquareClicked" Text=" "/>
+        <Button ClassId="12" HeightRequest="50" WidthRequest="50" FontSize="Header" Margin="1" Clicked="SquareClicked" Text=" "/>           
             </HorizontalStackLayout>
 
             <HorizontalStackLayout>
-        <Button ClassId="20" Clicked="SquareClicked" Text=" "/>
-        <Button ClassId="21" Clicked="SquareClicked" Text=" "/>
-        <Button ClassId="22" Clicked="SquareClicked" Text=" "/>
+        <Button ClassId="20" HeightRequest="50" WidthRequest="50" FontSize="Header" Margin="1" Clicked="SquareClicked" Text=" "/>
+        <Button ClassId="21" HeightRequest="50" WidthRequest="50" FontSize="Header" Margin="1" Clicked="SquareClicked" Text=" "/>
+        <Button ClassId="22" HeightRequest="50" WidthRequest="50" FontSize="Header" Margin="1" Clicked="SquareClicked" Text=" "/>
             </HorizontalStackLayout>
 
         </StackLayout>
