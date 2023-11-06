@@ -1,4 +1,6 @@
 ﻿using GameHub.Models;
+using GameHub.Services;
+using GameHub.Enums;
 
 namespace GameHub.ViewModels
 {
@@ -7,13 +9,19 @@ namespace GameHub.ViewModels
         string current = "X";
         string[,] GameBoard = new String[3, 3];
         int clicked = 0;
+        bool aiGame;
         TicTacToeModel model;
         MainPage mp;
+        TicTacToeAI ai;
 
-        public TicTacToeViewModel(TicTacToeModel model, MainPage mp)
+        public TicTacToeViewModel(TicTacToeModel model, MainPage mp, Difficulty diff, bool aiGame = false)
 		{
             this.model = model;
             this.mp = mp;
+            if (aiGame)
+            {
+                ai = new TicTacToeAI(diff);
+            }
         }
 
         private bool DidCurrentPlayerWin()
@@ -42,9 +50,9 @@ namespace GameHub.ViewModels
 
         void UpdateGameBoard(string id)
         {
-            int index1 = (int)id[0] - (int)'0'; //substract ASCI value from char to get index value
-            int index2 = (int)id[1] - (int)'0';
-            GameBoard[index1, index2] = current;
+                int index1 = (int)id[0] - (int)'0'; //substract ASCI value from char to get index value
+                int index2 = (int)id[1] - (int)'0';
+                GameBoard[index1, index2] = current;           
         }
 
 
@@ -62,21 +70,41 @@ namespace GameHub.ViewModels
                     UpdateGameBoard(btn.ClassId);
                     clicked++;
                 }
-                if (DidCurrentPlayerWin() || clicked == 9)
+            CheckWin();
+
+                if (aiGame)
                 {
-                    if (DidCurrentPlayerWin())
-                    {
-                        var msg = $"Player {current} won";
-                        mp.DisplayAlert("Game Over", msg, "OK");
-                    }
-                    else
-                    {
-                        mp.DisplayAlert("Game over", "Draw", "Ok");
-                    }
-                    CloseGame();
+                    MakeAiMove();
                 }
-                current = model.ChangedString(current);
+                else
+                {
+                    current = model.ChangedString(current);
+                }
+
             }
+
+
+        public void MakeAiMove()  
+        {
+            //TODO: add pve logic
+        }
+
+        void CheckWin()
+        {
+            if (DidCurrentPlayerWin() || clicked == 9)
+            {
+                if (DidCurrentPlayerWin())
+                {
+                    var msg = $"Player {current} won";
+                    mp.DisplayAlert("Game Over", msg, "OK");
+                }
+                else
+                {
+                    mp.DisplayAlert("Game over", "Draw", "Ok");
+                }
+                CloseGame();
+            }
+        }
     }
 }
 
