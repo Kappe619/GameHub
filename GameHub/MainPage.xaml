@@ -5,11 +5,21 @@
     <ScrollView>
         <VerticalStackLayout>
 
-            <HorizontalStackLayout>
-                <Button Text="Tic Tac Toe" FontSize="Subtitle" Clicked="TicTacToeBtnClicked" Margin="10"/>
-                <Label WidthRequest="20"/>
+           <Frame Background="Gray" Margin="5">
+                <VerticalStackLayout>
+                    <Label FontSize="Title" HorizontalTextAlignment="Center" Text="Tic Tac Toe"/>
+                    <Label Text="add options to choose settings"/>
+                    <Button Text="Play" HorizontalOptions="End" FontSize="Subtitle" Clicked="TicTacToeBtnClicked" Margin="10"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="Gray" Margin="5">
+
                 <Grid>
                     <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
@@ -19,11 +29,13 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="HangmanBtn" Text="Hangman" Clicked="HangmanBtnClicked" FontSize="Subtitle" Margin="10"/>
-                    <Label   Grid.Row="0" Grid.Column="0" Margin="10" x:Name="StepperLbl" Text="Level 5" FontSize="Subtitle" VerticalTextAlignment="Center" HorizontalTextAlignment="End"/>
-                    <Stepper Grid.Row="0" Grid.Column="1" Margin="10" Minimum="3" Maximum="11" Value="{Binding StepperValue, Mode=TwoWay}" ValueChanged="Stepper_ValueChanged"/>
-                    <Label   Grid.Row="0" Grid.Column="2" Margin="10" WidthRequest="120" FontSize="Subtitle">Language:</Label>
-                    <Picker  Grid.Row="1" Grid.Column="2" Margin="10" VerticalTextAlignment="Center" WidthRequest="120" FontSize="Subtitle" x:Name="LanguagePicker">
+
+                    <Label   Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="Hangman" HorizontalTextAlignment="Center" FontSize="Title"/>
+                    <Label Grid.Row="1" Grid.Column="0"/>
+                    <Label   Grid.Row="2" Grid.Column="0" Margin="10" x:Name="StepperLbl" Text="Level 5" FontSize="Subtitle" VerticalTextAlignment="Center"/>
+                    <Stepper Grid.Row="2" Grid.Column="1" Margin="1" Minimum="3" Maximum="11" Value="{Binding StepperValue, Mode=TwoWay}" ValueChanged="Stepper_ValueChanged"/>
+                    <Label   Grid.Row="3" Grid.Column="0" Text="Language: " VerticalOptions="Center" HorizontalOptions="End" />
+                    <Picker  Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="10" VerticalTextAlignment="Center" WidthRequest="120" FontSize="Subtitle" x:Name="LanguagePicker">
                         <Picker.ItemsSource>
                             <x:Array Type="{x:Type x:String}">
                                 <x:String>English</x:String>
@@ -34,9 +46,9 @@
                             <x:String>English</x:String>
                         </Picker.SelectedItem>
                     </Picker>
+                    <Button  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End" x:Name="HangmanBtn" Text="Play" Clicked="HangmanBtnClicked" FontSize="Subtitle" Margin="10"/>
                 </Grid>
-                <Label WidthRequest="20"/>
-            </HorizontalStackLayout>
+            </Frame>
 
             <VerticalStackLayout x:Name="VerticalStack"/>
 

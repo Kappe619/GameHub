@@ -55,6 +55,7 @@ namespace GameHub
         public void ClearStack()
         {
             VerticalStack.Clear();
+            VerticalStack.Focus();
         }
 
         void Stepper_ValueChanged(System.Object sender, Microsoft.Maui.Controls.ValueChangedEventArgs e)
