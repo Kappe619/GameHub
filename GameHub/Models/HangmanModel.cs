@@ -38,8 +38,6 @@ namespace GameHub.Models
                 ImageSource.FromFile("Images/imge.png"),
                 ImageSource.FromFile("Images/imgf.png"),
                 ImageSource.FromFile("Images/imgg.png"),
-                ImageSource.FromFile("Images/imgh.png"),
-                ImageSource.FromFile("Images/imgi.png"),
                 ImageSource.FromFile("Images/imglost.png")
             };
 

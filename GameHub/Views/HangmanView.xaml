@@ -9,13 +9,10 @@
                 <Setter Property="HeightRequest" Value="20"/>
                 <Setter Property="FontSize" Value="12"/>
             </Style>
-
         </ResourceDictionary>
     </ContentView.Resources>
 
     <VerticalStackLayout x:Name="verticalStack">
-
-        <Label x:Name="wrongCharsLbl"/>
         <Label
             Text="Hangman"            
             FontSize="Title"
@@ -26,21 +23,32 @@
 
         <Image
              x:Name="failStateImg"
-            Source="Images/hangmanimgstart.png"             
+            Source="Images/imgstart"             
              WidthRequest="100"
              HeightRequest="100"
             VerticalOptions="CenterAndExpand"
             HorizontalOptions="Center" />
-        <HorizontalStackLayout x:Name="baseGuessedCharsStack"/>
 
+        <VerticalStackLayout x:Name="baseGuessedCharsStack"/>
         <Frame BorderColor="Gray" Margin="10">
 
         <HorizontalStackLayout>
-            <Editor x:Name="charInputEditor" Background="gray" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="Title" MaxLength="1" WidthRequest="5" ></Editor>
+            <Editor x:Name="charInputEditor"
+                    Background="gray"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    FontSize="Title"
+                    MaxLength="1"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    Margin="2"
+                    IsSpellCheckEnabled="False">
+            </Editor>
             <Button Clicked="Button_Clicked" Text="guess"/>
         </HorizontalStackLayout>
 
         </Frame>
+        
 
     </VerticalStackLayout>
 </ContentView>

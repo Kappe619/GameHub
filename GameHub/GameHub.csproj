@@ -55,15 +55,13 @@
 	<ItemGroup>
 	  <None Remove="Views\" />
 	  <None Remove="Resources\Images\" />
-	  <None Remove="Resources\Images\hangmanpica.png" />
-	  <None Remove="Resources\Images\hangmanpicb.png" />
-	  <None Remove="Resources\Images\hangmanpicc.png" />
 	  <None Remove="ViewModels\" />
 	  <None Remove="Models\" />
 	  <None Remove="Resources\WordLists\" />
 	  <None Remove="Enums\" />
 	  <None Remove="Services\" />
 	  <None Remove="Resources\WordLists\GermanWords.json" />
+	  <None Remove="Resources\WordLists\EnglishWords.json" />
 	  <None Remove="Resources\Images\imgstart.png" />
 	  <None Remove="Resources\Images\imga.png" />
 	  <None Remove="Resources\Images\imgb.png" />
@@ -72,10 +70,7 @@
 	  <None Remove="Resources\Images\imge.png" />
 	  <None Remove="Resources\Images\imgf.png" />
 	  <None Remove="Resources\Images\imgg.png" />
-	  <None Remove="Resources\Images\imgh.png" />
-	  <None Remove="Resources\Images\imgi.png" />
 	  <None Remove="Resources\Images\imglost.png" />
-	  <None Remove="Resources\WordLists\EnglishWords.json" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Views\" />
@@ -87,23 +82,18 @@
 	  <Folder Include="Services\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <BundleResource Include="Resources\Images\hangmanpica.png" />
-	  <BundleResource Include="Resources\Images\hangmanpicb.png" />
-	  <BundleResource Include="Resources\Images\hangmanpicc.png" />
-	  <BundleResource Include="Resources\Images\imgstart.png" />
-	  <BundleResource Include="Resources\Images\imga.png" />
-	  <BundleResource Include="Resources\Images\imgb.png" />
-	  <BundleResource Include="Resources\Images\imgc.png" />
-	  <BundleResource Include="Resources\Images\imgd.png" />
-	  <BundleResource Include="Resources\Images\imge.png" />
-	  <BundleResource Include="Resources\Images\imgf.png" />
-	  <BundleResource Include="Resources\Images\imgg.png" />
-	  <BundleResource Include="Resources\Images\imgh.png" />
-	  <BundleResource Include="Resources\Images\imgi.png" />
-	  <BundleResource Include="Resources\Images\imglost.png" />
-	</ItemGroup>
-	<ItemGroup>
 	  <EmbeddedResource Include="Resources\WordLists\GermanWords.json" />
 	  <EmbeddedResource Include="Resources\WordLists\EnglishWords.json" />
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\imgstart.png" />
+	  <MauiImage Include="Resources\Images\imga.png" />
+	  <MauiImage Include="Resources\Images\imgb.png" />
+	  <MauiImage Include="Resources\Images\imgc.png" />
+	  <MauiImage Include="Resources\Images\imgd.png" />
+	  <MauiImage Include="Resources\Images\imge.png" />
+	  <MauiImage Include="Resources\Images\imgf.png" />
+	  <MauiImage Include="Resources\Images\imgg.png" />
+	  <MauiImage Include="Resources\Images\imglost.png" />
 	</ItemGroup>
 </Project>

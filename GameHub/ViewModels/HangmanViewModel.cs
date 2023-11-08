@@ -13,14 +13,14 @@ namespace GameHub.ViewModels
         int maxWordLenght = 8;
         int guessesCount = 0;
         int charsSolved = 0;
-        int maxWrongGuesses = 11;   //only 11 Images, max index 10
+        int maxWrongGuesses = 8;   //only 9 Images, max index 8
         List<char> wrongCharsList = new();
         public string wrongChars = "";
         VerticalStackLayout verticalStack;
         HorizontalStackLayout guessedCharsStack;
         int defaultFontSize = 20;
 
-        public HangmanViewModel(HangmanModel model, MainPage mainPage, VerticalStackLayout verticalStack, HorizontalStackLayout guessedCharsStack, Image failStateImg, int wordLenght = 5)
+        public HangmanViewModel(HangmanModel model, MainPage mainPage, VerticalStackLayout verticalStack, VerticalStackLayout guessedCharsStack, Image failStateImg, int wordLenght = 5)
         {
             this.failStateImg = failStateImg;
             this.model = model;
@@ -87,7 +87,7 @@ namespace GameHub.ViewModels
             return st;
         }
 
-        public void MakeGuess(char guessedChar, HorizontalStackLayout stack)
+        public void MakeGuess(char guessedChar, VerticalStackLayout stack)
         {
             guessedChar = char.ToUpper(guessedChar);
 
@@ -137,7 +137,7 @@ namespace GameHub.ViewModels
         void GameLost()
         {
             mp.DisplayAlert("Game over", $"Max wrong guesses reached, the word was {word}.", "ok");
-            mp.ClearStack();
+            mp.ClearStack();            
         }
 
         string SortedWrongGuesses()
@@ -156,7 +156,7 @@ namespace GameHub.ViewModels
             return s;
         }
 
-        void UpdateLabels(HorizontalStackLayout stack)
+        void UpdateLabels(VerticalStackLayout stack)
         {
             stack.Clear();
             stack.Children.Add(CharsInBordersStack());
